@@ -1,0 +1,40 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $color-background;
+
+  .container {
+    margin: 0 auto;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    @media screen and (min-width: 768px) {
+      max-width: 415px;
+    }
+
+    header {
+      display: flex;
+      background-color: $color-main;
+      color: #fff;
+      padding: 26px 12px;
+      align-items: center;
+
+      .title {
+        margin: 0 10px;
+      }
+
+      h1, h2, h3 {
+        margin: 0;
+        font-weight: normal;
+        line-height: 1.1;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 15px;
+      }
+    }
+  }
+}

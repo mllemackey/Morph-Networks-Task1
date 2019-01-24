@@ -1,0 +1,94 @@
+form {
+  padding: 30px 20px;
+  background-color: #fafafa;
+  color: $color-text;
+
+  .row {
+    display: flex;
+    align-items: center;
+
+    .field {
+      position: relative;
+      border-bottom: 1px solid $color-grey;
+      margin: 20px 0;
+
+      & + .form-group {
+        margin-top: 30px;
+      }
+      .form-label {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        color: $color-text;
+        z-index: 10;
+        transition: transform 150ms ease-out, font-size 150ms ease-out;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"], input[type="email"] {
+        background: none;
+        border: none;
+        padding: 14px 0;
+        color: $color-text;
+        width: 100%;
+        position: relative;
+        z-index: 11;
+        background: none !important;
+
+        &:focus {
+          outline: none;
+          color: $color-main;
+        }
+        &:valid{
+          //border: 2px solid red;
+        }
+
+      }
+
+
+      &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 0;
+        left: 0;
+        bottom: -1px;
+        background-color: $color-main;
+      }
+      &.focused{
+
+        &:after {
+          width: 100%;
+          transition: width 0.5s;
+        }
+      }
+      &.label-top {
+        .form-label {
+          transform: translateY(-125%);
+          font-size: .75em;
+        }
+      }
+    }
+    input[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      background-color: $color-main;
+      color: #fff;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    h3 {
+      font-weight: normal;
+    }
+    &.radio_row .field{
+      border:none;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,245 @@
+.flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.single-chart {
+  width: 37px;
+  margin: 0 6px;
+
+  .check-complete {
+    stroke-width: 3;
+  }
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 2;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-dasharray: 0 100;
+  transition: all 1s ease-in;
+  //animation: progress 1s ease-out forwards;
+}
+//
+//@keyframes progress {
+//  0% {
+//    stroke-dasharray: 0 100;
+//  }
+//}
+.circle.progress25{
+  stroke-dasharray: 25 100;
+}
+.circle.progress50{
+  stroke-dasharray: 50 100;
+}
+.circle.progress75{
+  stroke-dasharray: 75 100;
+}
+.circle.progress100{
+  stroke-dasharray: 100 100;
+}
+.percentage {
+  fill: #fff;
+  font-size: 0.6em;
+  text-anchor: middle;
+
+  &.hide_number {
+    opacity: 0;
+    transition: opacity .5s ;
+  }
+}
+
+/********************/
+
+
+.check {
+  stroke-dasharray: 110;
+  stroke-dashoffset: -110;
+  stroke-width: 0;
+}
+
+.check-complete {
+  -webkit-animation: check 1s ease-in forwards;
+  animation: check 1s ease-in forwards;
+  stroke-width: 5;
+  stroke-dashoffset: 0;
+}
+@-webkit-keyframes check {
+  0% {
+    stroke-dashoffset: -110;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes check {
+  0% {
+    stroke-dashoffset: -110;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark {
+  width: 30px;
+  margin: 5px 10px 0;
+
+  .path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 0;
+    stroke: none;
+    fill: #fff;
+    &.path-animate {
+      stroke: $color-main;
+      -webkit-animation-name: load, spin;
+      -webkit-animation-duration: 3s, 3s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      animation-name: load, spin;
+      animation-duration: 3s, 3s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      -webkit-transform-origin: 50% 50%;
+      -moz-transform-origin: 50px 50px;
+    }
+  }
+
+  .path-complete {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    stroke-width: 0;
+  }
+
+  text.field_number {
+    font-size: 2.5em;
+    fill: $color-main;
+
+    &.hide_number {
+      opacity: 0;
+      transition: opacity .5s ;
+    }
+  }
+
+  .fill {
+    stroke-dasharray: 285;
+    stroke-dashoffset: -257;
+    stroke-width: 0;
+
+    &.fill-animate {
+      stroke-width: 4;
+      stroke: $color-main;
+      -webkit-animation: spin-fill 3s cubic-bezier(0.700, 0.435, 0.120, 0.600) infinite forwards;
+      animation: spin-fill 3s cubic-bezier(0.700, 0.465, 0.120, 0.600) infinite forwards;
+      -webkit-transform-origin: 50% 50%;
+      -moz-transform-origin: 50px 50px;
+    }
+  }
+
+  .fill-complete {
+    -webkit-animation: fill 1s ease-out forwards;
+    animation: fill 1s ease-out forwards;
+  }
+
+  @-webkit-keyframes load {
+    0% {
+      stroke-dashoffset: 300;
+      -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+    50% {
+      stroke-dashoffset: 0;
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    100% {
+      stroke-dashoffset: -300;
+    }
+  }
+  @keyframes load {
+    0% {
+      stroke-dashoffset: 285;
+      animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+    50% {
+      stroke-dashoffset: 0;
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    100% {
+      stroke-dashoffset: -285;
+    }
+  }
+
+
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes spin-fill {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(720deg);
+    }
+  }
+  @keyframes spin-fill {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(720deg);
+    }
+  }
+
+  @-webkit-keyframes fill {
+    0% {
+      stroke-dashoffset: 285;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes fill {
+    0% {
+      stroke-dashoffset: 285;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .success {
+    stroke: $color-main;
+    transition: stroke .6s;
+  }
+}
+
+#checkmark {
+  -webkit-filter: drop-shadow(0px 3px 2px rgba(129, 139, 152, 0.7));
+  filter: drop-shadow(0px 3px 2px rgba(129, 139, 152, 0.7));
+}
